@@ -16,32 +16,69 @@ body {
     background-color: #222;
     border: 2px solid #fff;
     overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
 #player {
     position: absolute;
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     background-color: #3498db;
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .falling-object {
     position: absolute;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     background-color: #e74c3c;
     border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 #score {
     position: absolute;
     top: 10px;
     left: 10px;
-    font-size: 20px;
+    font-size: 24px;
     background-color: rgba(0, 0, 0, 0.6);
-    padding: 5px;
-    border-radius: 5px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#controller {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+}
+
+.control-btn {
+    width: 100px;
+    height: 60px;
+    font-size: 18px;
+    background-color: rgba(52, 152, 219, 0.7);
+    border: 2px solid #3498db;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.control-btn:hover {
+    background-color: rgba(52, 152, 219, 1);
+    transform: scale(1.1);
+}
+
+.control-btn:active {
+    background-color: rgba(52, 152, 219, 0.5);
 }

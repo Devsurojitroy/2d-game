@@ -1,6 +1,8 @@
 const player = document.getElementById('player');
 const fallingObjects = document.querySelectorAll('.falling-object');
 const scoreDisplay = document.getElementById('score');
+const leftBtn = document.getElementById('leftBtn');
+const rightBtn = document.getElementById('rightBtn');
 const gameArea = document.getElementById('gameArea');
 
 let playerLeft = gameArea.clientWidth / 2 - player.clientWidth / 2;
@@ -8,10 +10,10 @@ let score = 0;
 const playerSpeed = 10;
 const fallingSpeed = 5;
 
-function movePlayer(event) {
-    if (event.key === 'ArrowLeft') {
+function movePlayer(direction) {
+    if (direction === 'left') {
         playerLeft = Math.max(0, playerLeft - playerSpeed);
-    } else if (event.key === 'ArrowRight') {
+    } else if (direction === 'right') {
         playerLeft = Math.min(gameArea.clientWidth - player.clientWidth, playerLeft + playerSpeed);
     }
     player.style.left = playerLeft + 'px';
@@ -46,5 +48,12 @@ function updateFallingObjects() {
     });
 }
 
-document.addEventListener('keydown', movePlayer);
+document.addEventListener('keydown', event => {
+    if (event.key === 'ArrowLeft') movePlayer('left');
+    if (event.key === 'ArrowRight') movePlayer('right');
+});
+
+leftBtn.addEventListener('click', () => movePlayer('left'));
+rightBtn.addEventListener('click', () => movePlayer('right'));
+
 setInterval(updateFallingObjects, 20);
